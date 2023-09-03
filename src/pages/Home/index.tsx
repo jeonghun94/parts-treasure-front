@@ -8,8 +8,19 @@ const Container = styled.div`
 `;
 
 function Home() {
-  const { data } = useQuery<any>({ queryKey });
-  return <Container>{data}</Container>;
+  const { data } = useQuery<GetUsersResponse>({ queryKey });
+  return (
+    <Container>
+      {data?.map((user) => {
+        return (
+          <div key={user.id}>
+            <h1>{user.name}</h1>
+            <h2>{user.email}</h2>
+          </div>
+        );
+      })}
+    </Container>
+  );
 }
 
 export default Home;

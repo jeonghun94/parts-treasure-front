@@ -1,14 +1,15 @@
-interface Character {
+interface User {
   id: number;
-  imageUrl: string;
+  email: string;
   name: string;
+  username: string;
+  password: string;
+  createdAt: string;
+  updatedAt: string;
+  avatarColor?: string;
+  avatarUrl?: string;
+  backgroundUrl?: string;
+  isSocialUser?: boolean;
 }
 
-type GetCharactersResponse = Character[];
-
-interface CharacterDetail extends Character {
-  sourceUrl: string;
-  films: string[];
-}
-
-type GetCharacterDetailResponse = CharacterDetail;
+type GetUsersResponse = User[];
